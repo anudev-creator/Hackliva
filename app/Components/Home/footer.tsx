@@ -7,13 +7,31 @@ type FooterLink = { label: string; href: string; tag?: string };
 
 const trainingTracks: FooterLink[] = [
   { label: "Certified Offensive Security Professional + AI Red Teaming (COSP AI+)", href: "#" },
-  { label: "Bug Hunting with AI Automation (BHAI)", href: "#" },
-  { label: "Certified Network Penetration Testing Specialist (CNPTS)", href: "#" },
+  {
+    label: "Bug Hunting with AI Automation (BHAI)",
+    href: "/Courses/bug-hunting-with-ai-automation",
+  },
+  {
+    label: "Certified Network Penetration Testing Specialist (CNPTS)",
+    href: "/Courses/certified-network-penetration-testing-specialist",
+  },
   { label: "Certified Container Security Specialist (CCSS)", href: "#" },
-  { label: "Certified Web Penetration Testing Specialist (CWPTS)", href: "#" },
-  { label: "Certified Mobile Application Security Specialist (CMASS)", href: "#" },
-  { label: "Certified AI Red Teaming Specialist (CAIRTS)", href: "#" },
-  { label: "Certified Reverse Engineering Specialist (CRES)", href: "#" },
+  {
+    label: "Certified Web Penetration Testing Specialist (CWPTS)",
+    href: "/Courses/certified-web-penetration-testing-specialist",
+  },
+  {
+    label: "Certified Mobile Application Security Specialist (CMASS)",
+    href: "/Courses/certified-mobile-application-security-specialist",
+  },
+  {
+    label: "Certified AI Red Teaming Specialist (CAIRTS)",
+    href: "/Courses/certified-ai-red-teaming-specialist",
+  },
+  {
+    label: "Certified Reverse Engineering Specialist (CRES)",
+    href: "/Courses/certified-reverse-engineering-specialist",
+  },
   { label: "Cloud-Native Adversary Emulation", href: "#" },
   { label: "API & Microservices Offensive Security", href: "#" },
 ];
@@ -194,7 +212,7 @@ function FooterColumn({
 export default function Footer() {
   return (
     <footer className="w-full bg-white">
-      <div className="mx-auto max-w-[1280px] px-4 pb-10 pt-16 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 pb-10 pt-16 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-6">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-2">

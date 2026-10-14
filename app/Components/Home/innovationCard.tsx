@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { assetPath } from "../assetPath";
 import Link from "next/link";
-import { assetPath } from "@/app/lib/paths";
 
 export type InnovationCardProps = {
   boldText: string;
@@ -22,7 +22,7 @@ export default function InnovationCard({
   href,
 }: InnovationCardProps) {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-xl border border-[#F2D6D6] bg-white">
+    <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#F2D6D6] bg-white transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#F00012]/40 hover:shadow-xl hover:shadow-black/5">
       <div className="flex flex-col px-6 pb-5 pt-7">
         <p className="text-sm leading-5 text-[#4B4B4B] lg:text-[14px] lg:leading-[20px]">
           <span className="font-bold text-[#0A0A0A]">{boldText}</span> {text}
@@ -56,9 +56,14 @@ export default function InnovationCard({
         </Link>
       </div>
 
-      <div className="relative mt-1 aspect-[366/192] w-full shrink-0">
-        <Image src={assetPath(imageSrc)} alt={imageAlt} fill className="object-cover" />
-        <span className="absolute left-1/2 top-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md lg:size-10">
+      <div className="relative mt-1 aspect-[366/192] w-full shrink-0 overflow-hidden">
+        <Image
+          src={assetPath(imageSrc)}
+          alt={imageAlt}
+          fill
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        />
+        <span className="absolute left-1/2 top-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 ease-out group-hover:scale-110 lg:size-10">
           {linkIcon === "play" ? (
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="ml-0.5 size-4 text-[#F00012]">
               <path d="M8 5v14l11-7L8 5Z" />

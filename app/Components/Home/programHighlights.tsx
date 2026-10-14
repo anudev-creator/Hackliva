@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FeatureCard, { type FeatureCardProps } from "./featureCard";
+import Reveal from "./reveal";
 
 export type ProgramHighlightsTab = {
   label: string;
@@ -18,7 +19,7 @@ export default function ProgramHighlights({ tabs }: ProgramHighlightsProps) {
 
   return (
     <section className="w-full">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
         <div className="border-b border-[#F9EBEC]">
           <div className="flex flex-wrap items-center gap-6 lg:gap-10">
             {tabs.map((tab, index) => {
@@ -50,8 +51,10 @@ export default function ProgramHighlights({ tabs }: ProgramHighlightsProps) {
         <div className="mt-6 h-[10px] w-[4px] bg-[#F00012]" />
 
         <div className="mt-[9px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {active.cards.map((card) => (
-            <FeatureCard key={card.title} {...card} />
+          {active.cards.map((card, index) => (
+            <Reveal key={`${activeIndex}-${card.title}`} delay={index * 90} duration={600}>
+              <FeatureCard {...card} />
+            </Reveal>
           ))}
         </div>
       </div>

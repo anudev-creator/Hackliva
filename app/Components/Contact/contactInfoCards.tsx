@@ -41,7 +41,7 @@ export default function ContactInfoCards({
 }: ContactInfoCardsProps) {
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-8 rounded-2xl border border-[#F2D6D6] bg-white p-8">
+      <div className="flex flex-col gap-8 rounded-2xl border border-[#F2D6D6] bg-white p-8 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-black/5">
         <div className="border-b border-[#F2D6D6] pb-8">
           <h3 className={blockTitle}>{headquarters.title}</h3>
           <p className={`mt-2 ${blockText}`}>{headquarters.location}</p>

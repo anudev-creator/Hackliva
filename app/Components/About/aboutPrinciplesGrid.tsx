@@ -26,7 +26,7 @@ export default function AboutPrinciplesGrid({
         {principles.map((principle) => (
           <div
             key={principle.title}
-            className="rounded-xl border border-[#E5E5E5] bg-white p-6 shadow-[0px_1px_1px_rgba(0,0,0,0.05)] lg:p-[29px]"
+            className="rounded-xl border border-[#E5E5E5] bg-white p-6 shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#F00012]/30 hover:shadow-xl hover:shadow-black/5 lg:p-[29px]"
           >
             <h3 className="text-lg font-bold leading-7 text-[#171717]">
               {principle.title}

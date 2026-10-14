@@ -23,6 +23,7 @@ import InnovationSection from "./Components/Home/innovationSection";
 import type { InnovationCardProps } from "./Components/Home/innovationCard";
 import ConsultationBanner from "./Components/Home/consultationBanner";
 import Footer from "./Components/Home/footer";
+import Reveal from "./Components/Home/reveal";
 
 const heroCards: HeroCardProps[] = [
   {
@@ -70,7 +71,7 @@ const courses: CourseCardProps[] = [
     duration: "03 Months",
     title: "Bug Hunting with AI Automation",
     buttonLabel: "View Cource",
-    href: "#",
+    href: "/Courses/bug-hunting-with-ai-automation",
   },
   {
     code: "CCSS",
@@ -84,7 +85,28 @@ const courses: CourseCardProps[] = [
     duration: "03 Months",
     title: "Certified Web Penetration Testing Specialist",
     buttonLabel: "View Cource",
-    href: "#",
+    href: "/Courses/certified-web-penetration-testing-specialist",
+  },
+  {
+    code: "CNPTS",
+    duration: "04 Months",
+    title: "Network Penetration Testing Specialist",
+    buttonLabel: "View Cource",
+    href: "/Courses/certified-network-penetration-testing-specialist",
+  },
+  {
+    code: "CMASS",
+    duration: "04 Months",
+    title: "Certified Mobile Application Security Specialist",
+    buttonLabel: "View Cource",
+    href: "/Courses/certified-mobile-application-security-specialist",
+  },
+  {
+    code: "CAIRTS",
+    duration: "04 Months",
+    title: "Certified AI Red Teaming Specialist",
+    buttonLabel: "View Cource",
+    href: "/Courses/certified-ai-red-teaming-specialist",
   },
 ];
 
@@ -292,7 +314,7 @@ const featuredModule = {
     { icon: "lab" as const, label: "Hands-on Labs" },
   ],
   buttonLabel: "Course Details",
-  href: "#",
+  href: "/Courses/bug-hunting-with-ai-automation",
 };
 
 const innovationCards: InnovationCardProps[] = [
@@ -343,57 +365,79 @@ export default function Home() {
       <section>
         <MenuBar />
       </section>
-      <HeroSection />
-      <TrainingTracks
-        eyebrow="Training Tracks"
-        eyebrowHref="/Training_Tracks"
-        heading="Hackliva Offasive Security Cource"
-        courses={courses}
-      />
-      <section className="w-full">
-        <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-8 lg:px-16">
-          <QuoteCallout {...quote} />
-        </div>
-      </section>
-      <section className="w-full">
-        <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
-          <FeaturedModuleCard {...featuredModule} />
-        </div>
-      </section>
-      <AiInsightsSection
-        heading="AI is Everywhere. Your Controls Aren't."
-        description="AI is changing how security teams discover vulnerabilities, analyze applications and respond to threats. Learn how to use AI responsibly across modern offensive security workflows."
-        cards={aiInsightCards}
-      />
-      <ProgramHighlights tabs={programHighlightsTabs} />
-      <ServicesOverview
-        heading="Our Cybersecurity Services ?"
-        description="We help organizations identify vulnerabilities, strengthen security and protect critical digital infrastructure through practical cybersecurity services."
-        highlight={servicesHighlight}
-        services={serviceCards}
-      />
-      <section className="w-full">
-        <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
-          <CareerSection
-            heading="Build Your Cybersecurity Career"
-            description="Turn your cybersecurity skills into a professional career with practical guidance, interview preparation and industry-focused mentorship."
-            buttonLabel="Start with OpusNexus"
-            href="#"
-            cards={careerCards}
-          />
-        </div>
-      </section>
-      <InnovationSection
-        heading="Cyber Security Innovation at"
-        highlight="Hackliva"
-        cards={innovationCards}
-      />
-      <ServicesSection />
-      <section className="w-full">
-        <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
-          <ConsultationBanner {...consultation} />
-        </div>
-      </section>
+      <Reveal duration={900}>
+        <HeroSection />
+      </Reveal>
+      <Reveal>
+        <TrainingTracks
+          eyebrow="Training Tracks"
+          eyebrowHref="/Training_Tracks"
+          heading="Hackliva Offasive Security Cource"
+          courses={courses}
+        />
+      </Reveal>
+      <Reveal>
+        <section className="w-full">
+          <div className="mx-auto max-w-[1536px] px-4 py-16 sm:px-8 lg:px-16">
+            <QuoteCallout {...quote} />
+          </div>
+        </section>
+      </Reveal>
+      <Reveal scale>
+        <section className="w-full">
+          <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
+            <FeaturedModuleCard {...featuredModule} />
+          </div>
+        </section>
+      </Reveal>
+      <Reveal>
+        <AiInsightsSection
+          heading="AI is Everywhere. Your Controls Aren't."
+          description="AI is changing how security teams discover vulnerabilities, analyze applications and respond to threats. Learn how to use AI responsibly across modern offensive security workflows."
+          cards={aiInsightCards}
+        />
+      </Reveal>
+      <Reveal>
+        <ProgramHighlights tabs={programHighlightsTabs} />
+      </Reveal>
+      <Reveal>
+        <ServicesOverview
+          heading="Our Cybersecurity Services ?"
+          description="We help organizations identify vulnerabilities, strengthen security and protect critical digital infrastructure through practical cybersecurity services."
+          highlight={servicesHighlight}
+          services={serviceCards}
+        />
+      </Reveal>
+      <Reveal scale>
+        <section className="w-full">
+          <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
+            <CareerSection
+              heading="Build Your Cybersecurity Career"
+              description="Turn your cybersecurity skills into a professional career with practical guidance, interview preparation and industry-focused mentorship."
+              buttonLabel="Start with OpusNexus"
+              href="#"
+              cards={careerCards}
+            />
+          </div>
+        </section>
+      </Reveal>
+      <Reveal>
+        <InnovationSection
+          heading="Cyber Security Innovation at"
+          highlight="Hackliva"
+          cards={innovationCards}
+        />
+      </Reveal>
+      <Reveal>
+        <ServicesSection />
+      </Reveal>
+      <Reveal scale>
+        <section className="w-full">
+          <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
+            <ConsultationBanner {...consultation} />
+          </div>
+        </section>
+      </Reveal>
       <Footer />
     </div>
   );
@@ -415,12 +459,16 @@ function HeroSection() {
       </p>
       <div className="mt-8 flex w-full flex-wrap justify-center gap-6">
         {heroCards.map((card, index) => (
-          <HeroCard key={`${index}-${card.title}`} {...card} />
+          <Reveal key={`${index}-${card.title}`} delay={300 + index * 130} duration={650}>
+            <HeroCard {...card} />
+          </Reveal>
         ))}
       </div>
-      <div className="mt-15 flex w-full justify-center">
-        <CtaBanner {...ctaBanner} />
-      </div>
+      <Reveal delay={300 + heroCards.length * 130} duration={650}>
+        <div className="mt-15 flex w-full justify-center">
+          <CtaBanner {...ctaBanner} />
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -428,32 +476,36 @@ function HeroSection() {
 function ServicesSection() {
   return (
     <section className="w-full">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
-          <div className="flex flex-col items-start">
-            <h2 className="text-2xl font-bold leading-tight text-[#0A0A0A] lg:text-[30px] lg:leading-[36px]">
-              Build with confidence.
-              <br />
-              <span className="text-[#F00012]">
-                Designed to protect your business.
-              </span>
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-[#555555] lg:max-w-[400px] lg:text-[15px] lg:leading-[24px]">
-              Protect your applications, cloud, and infrastructure with
-              cybersecurity services, compliance assessments, and expert
-              security consulting.
-            </p>
-            <Link
-              href="/Contact"
-              className="mt-6 inline-flex h-9 shrink-0 items-center justify-center rounded-lg bg-[#F00012] px-4 text-xs font-bold text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012] lg:px-5 lg:text-[14px]"
-            >
-              Get started for free
-            </Link>
-          </div>
-          <ServicesAccordion
-            items={serviceAccordionItems}
-            defaultOpenIndex={1}
-          />
+          <Reveal direction="left">
+            <div className="flex flex-col items-start">
+              <h2 className="text-2xl font-bold leading-tight text-[#0A0A0A] lg:text-[30px] lg:leading-[36px]">
+                Build with confidence.
+                <br />
+                <span className="text-[#F00012]">
+                  Designed to protect your business.
+                </span>
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-[#555555] lg:max-w-[400px] lg:text-[15px] lg:leading-[24px]">
+                Protect your applications, cloud, and infrastructure with
+                cybersecurity services, compliance assessments, and expert
+                security consulting.
+              </p>
+              <Link
+                href="/Contact"
+                className="mt-6 inline-flex h-9 shrink-0 items-center justify-center rounded-lg bg-[#F00012] px-4 text-xs font-bold text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012] lg:px-5 lg:text-[14px]"
+              >
+                Get started for free
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal direction="right" delay={120}>
+            <ServicesAccordion
+              items={serviceAccordionItems}
+              defaultOpenIndex={1}
+            />
+          </Reveal>
         </div>
       </div>
     </section>

@@ -25,8 +25,10 @@ export default function ServicesAccordion({
         return (
           <div
             key={item.title}
-            className={`rounded-xl border border-[#F2D6D6] transition-colors duration-300 ${
-              isOpen ? "bg-[#F9F9F9]" : "bg-white"
+            className={`rounded-xl border transition-all duration-300 ${
+              isOpen
+                ? "border-[#F2D6D6] bg-[#F9F9F9]"
+                : "border-[#F2D6D6] bg-white hover:border-[#F00012]/40 hover:shadow-md hover:shadow-black/5"
             }`}
           >
             <button

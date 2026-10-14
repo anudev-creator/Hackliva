@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { assetPath } from "../assetPath";
 import Link from "next/link";
-import { assetPath } from "@/app/lib/paths";
 
 export type FeaturedModuleTag = {
   icon: "calendar" | "video" | "lab";
@@ -48,10 +48,15 @@ export default function FeaturedModuleCard({
   href,
 }: FeaturedModuleCardProps) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-[#F2D6D6] bg-white">
+    <div className="group overflow-hidden rounded-2xl border border-[#F2D6D6] bg-white transition-all duration-300 ease-out hover:border-[#F00012]/40 hover:shadow-xl hover:shadow-black/5">
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,420px)_1fr]">
-        <div className="relative aspect-[479/300] w-full">
-          <Image src={assetPath(imageSrc)} alt={imageAlt} fill className="object-cover" />
+        <div className="relative aspect-[479/300] w-full overflow-hidden">
+          <Image
+            src={assetPath(imageSrc)}
+            alt={imageAlt}
+            fill
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          />
           <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#0A0A0A] shadow-sm">
             <span className="size-1.5 shrink-0 rounded-full bg-[#F00012]" />
             {badgeLabel}
@@ -81,10 +86,15 @@ export default function FeaturedModuleCard({
           <div className="mt-6 flex justify-end lg:mt-8">
             <Link
               href={href}
-              className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#F00012] px-5 text-sm font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012]"
+              className="group/btn inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#F00012] px-5 text-sm font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012]"
             >
               {buttonLabel}
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="size-4">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+                className="size-4 transition-transform duration-300 ease-out group-hover/btn:translate-x-1"
+              >
                 <path
                   d="M3 8h10m0 0L9 4m4 4L9 12"
                   stroke="currentColor"

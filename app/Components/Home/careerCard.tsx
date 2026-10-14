@@ -12,8 +12,8 @@ export default function CareerCard({
   icon,
 }: CareerCardProps) {
   return (
-    <div className="flex h-full min-h-[230px] flex-col rounded-xl border border-[#F2D6D6] bg-white px-4 py-4 lg:min-h-[304px] lg:px-5 lg:py-5">
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#EEEEEE] text-[#F00012]">
+    <div className="group flex h-full min-h-[230px] flex-col rounded-xl border border-[#F2D6D6] bg-white px-4 py-4 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#F00012]/40 hover:shadow-xl hover:shadow-black/5 lg:min-h-[304px] lg:px-5 lg:py-5">
+      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#EEEEEE] text-[#F00012] transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-[#F00012] group-hover:text-white">
         <CareerIcon name={icon} className="size-[18px]" />
       </span>
       <h3 className="mt-3 text-base font-bold leading-6 text-[#0A0A0A] lg:text-[18px] lg:leading-[24px]">

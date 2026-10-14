@@ -8,7 +8,7 @@ export default function AiInsightCard({
   description,
 }: AiInsightCardProps) {
   return (
-    <div className="h-full rounded-xl border border-[#F2D6D6] bg-white py-6 pr-6">
+    <div className="h-full rounded-xl border border-[#F2D6D6] bg-white py-6 pr-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#F00012]/40 hover:shadow-xl hover:shadow-black/5">
       <div className="h-full border-l-[3px] border-[#F00012] pl-6">
         <h3 className="text-base font-bold text-[#0A0A0A] lg:text-[17px]">
           {title}

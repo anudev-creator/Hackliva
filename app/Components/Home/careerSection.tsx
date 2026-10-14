@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CareerCard, { type CareerCardProps } from "./careerCard";
+import Reveal from "./reveal";
 
 export type CareerSectionProps = {
   heading: string;
@@ -34,8 +35,10 @@ export default function CareerSection({
           </Link>
         </div>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {cards.map((card) => (
-            <CareerCard key={card.title} {...card} />
+          {cards.map((card, index) => (
+            <Reveal key={card.title} delay={index * 90} duration={600} distance={20}>
+              <CareerCard {...card} />
+            </Reveal>
           ))}
         </div>
       </div>

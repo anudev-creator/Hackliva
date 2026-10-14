@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import CourseCard, { type CourseCardProps } from "./courseCard";
+import Reveal from "./reveal";
 
 export type TrainingTracksProps = {
   eyebrow: string;
@@ -28,7 +29,7 @@ export default function TrainingTracks({
 
   return (
     <section className="w-full border-y border-[#F2D6D6] mt-20 bg-[#FAFAFA]">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
         <div className="flex items-end justify-between">
           <div>
             {eyebrowHref ? (
@@ -98,9 +99,14 @@ export default function TrainingTracks({
           className="mt-[59px] flex snap-x snap-mandatory gap-8 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {courses.map((course, index) => (
-            <div key={`${index}-${course.code}`} className="snap-start">
+            <Reveal
+              key={`${index}-${course.code}`}
+              className="snap-start"
+              delay={index * 90}
+              duration={600}
+            >
               <CourseCard {...course} />
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

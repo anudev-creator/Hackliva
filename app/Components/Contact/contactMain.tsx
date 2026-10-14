@@ -20,7 +20,7 @@ export default function ContactMain({
 }: ContactMainProps) {
   return (
     <section className="w-full bg-[#FAFAFA]">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16 lg:py-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16 lg:py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_368px] lg:items-start">
           <div>
             <h1 className="text-3xl font-extrabold leading-tight tracking-[-0.9px] text-[#050505] sm:text-4xl lg:text-[56px] lg:leading-[56px] lg:tracking-[-1.4px]">

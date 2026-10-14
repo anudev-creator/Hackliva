@@ -2,6 +2,7 @@ import ServiceCard, { type ServiceCardProps } from "./serviceCard";
 import ServiceHighlightCard, {
   type ServiceHighlightCardProps,
 } from "./serviceHighlightCard";
+import Reveal from "./reveal";
 
 export type ServicesOverviewProps = {
   heading: string;
@@ -18,7 +19,7 @@ export default function ServicesOverview({
 }: ServicesOverviewProps) {
   return (
     <section className="w-full mt-40">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
         <h2 className="text-center text-3xl font-extrabold uppercase tracking-tight text-[#0A0A0A] lg:text-[40px]">
           {heading}
         </h2>
@@ -27,10 +28,14 @@ export default function ServicesOverview({
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[280px_1fr] lg:gap-8">
-          <ServiceHighlightCard {...highlight} />
+          <Reveal direction="left">
+            <ServiceHighlightCard {...highlight} />
+          </Reveal>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
+            {services.map((service, index) => (
+              <Reveal key={service.title} delay={index * 60} duration={550} distance={18}>
+                <ServiceCard {...service} />
+              </Reveal>
             ))}
           </div>
         </div>

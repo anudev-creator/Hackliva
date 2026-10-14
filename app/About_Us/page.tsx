@@ -109,7 +109,7 @@ export default function AboutUsPage() {
         principlesGrid={principlesGrid}
       />
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-[1280px] px-4 py-14 sm:px-8 lg:px-24">
+        <div className="mx-auto max-w-[1536px] px-4 py-14 sm:px-8 lg:px-24">
           <ConsultationBanner {...consultation} />
         </div>
       </section>

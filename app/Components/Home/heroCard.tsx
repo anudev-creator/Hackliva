@@ -1,6 +1,6 @@
 import Image from "next/image";
+import { assetPath } from "../assetPath";
 import Link from "next/link";
-import { assetPath } from "@/app/lib/paths";
 
 export type HeroCardProps = {
   title: string;
@@ -60,7 +60,7 @@ export default function HeroCard({
   );
 
   const className =
-    "group flex w-full max-w-[358px] flex-col overflow-hidden lg:max-w-[368px] lg:flex-row rounded-xl border border-[#F2D6D6] bg-white transition-colors duration-300 hover:border-[#F00012]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012]";
+    "group flex w-full max-w-[358px] flex-col overflow-hidden lg:max-w-[368px] lg:flex-row rounded-xl border border-[#F2D6D6] bg-white transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#F00012]/40 hover:shadow-xl hover:shadow-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012]";
 
   return href ? (
     <Link href={href} className={className}>

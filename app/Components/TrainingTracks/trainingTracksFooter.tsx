@@ -20,6 +20,12 @@ const companyLinks: FooterLink[] = [
   { label: "Partners", href: "#" },
 ];
 
+const legalLinks: FooterLink[] = [
+  { label: "Privacy Policy", href: "#" },
+  { label: "Terms of Service", href: "#" },
+  { label: "Responsible Disclosure", href: "#" },
+];
+
 function FooterNavColumn({
   heading,
   links,
@@ -51,7 +57,7 @@ function FooterNavColumn({
 export default function TrainingTracksFooter() {
   return (
     <footer className="w-full bg-white">
-      <div className="mx-auto max-w-[1280px] px-4 py-16 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-16 sm:px-8 lg:px-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[368px_1fr]">
           <div>
             <Link
@@ -68,17 +74,38 @@ export default function TrainingTracksFooter() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <FooterNavColumn heading="Training" links={trainingLinks} />
             <FooterNavColumn heading="Resources" links={resourceLinks} />
-            <FooterNavColumn
-              heading="Learn from Senior Pentesters"
-              links={companyLinks}
-            />
+            <FooterNavColumn heading="Company" links={companyLinks} />
           </div>
         </div>
 
-        <div className="mt-16 border-t border-[#F2D6D6] pt-8">
-          <p className="text-sm text-[#555] opacity-60">
-            © 2026 HACKLIVA Academy Global.
+        <div className="mt-12">
+          <p className="font-mono text-xs uppercase tracking-[1.4px] text-[#555]">
+            Global HQ Coordinates
           </p>
+          <p className="mt-2 text-sm text-[#050505]">
+            Cyberpark Kozhikode, Kerala 673016, IN
+          </p>
+          <p className="font-mono mt-1 text-xs text-[#555]">
+            11.2858° N, 75.8711° E
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-[#F2D6D6] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-[#555] opacity-60">
+            © 2026 HACKLIVA OFFANSIVE SECURITY ACADEMY
+          </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {legalLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-[#555] transition-colors duration-300 hover:text-[#0A0A0A]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import InnovationCard, { type InnovationCardProps } from "./innovationCard";
+import Reveal from "./reveal";
 
 export type InnovationSectionProps = {
   heading: string;
@@ -28,7 +29,7 @@ export default function InnovationSection({
 
   return (
     <section className="w-full">
-      <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-8 lg:px-16">
+      <div className="mx-auto max-w-[1536px] px-4 py-12 sm:px-8 lg:px-16">
         <h2 className="text-center text-3xl font-extrabold text-[#0A0A0A] lg:text-[40px]">
           {heading} <span className="text-[#F00012]">{highlight}</span>
         </h2>
@@ -39,12 +40,13 @@ export default function InnovationSection({
           className="mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {cards.map((card, index) => (
-            <div
+            <Reveal
               key={`${index}-${card.boldText}`}
               className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-40px)/3)]"
+              delay={index * 100}
             >
               <InnovationCard {...card} />
-            </div>
+            </Reveal>
           ))}
         </div>
 
