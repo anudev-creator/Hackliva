@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 // so production builds live under a sub-path. Dev stays at "/".
 const basePath =
   process.env.NEXT_PUBLIC_BASE_PATH ??
-  (process.env.NODE_ENV === "production" ? "/hackliva_website_v1" : "");
+  (process.env.NODE_ENV === "production" ? "/Hackliva" : "");
 
 const nextConfig: NextConfig = {
   output: "export",
