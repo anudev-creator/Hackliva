@@ -6,7 +6,7 @@ import CourseHighlightCard from "../Components/TrainingTracks/courseHighlightCar
 import FoundationsRoadmap, {
   type RoadmapModule,
 } from "../Components/TrainingTracks/foundationsRoadmap";
-import TrainingTracksFooter from "../Components/TrainingTracks/trainingTracksFooter";
+import Footer from "../Components/Home/footer";
 
 const pillars: TrainingPillar[] = [
   {
@@ -104,7 +104,7 @@ export default function TrainingTracksPage() {
         modules={roadmapModules}
       />
 
-      <TrainingTracksFooter />
+      <Footer />
     </div>
   );
 }

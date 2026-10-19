@@ -7,7 +7,7 @@ import TrainingTracksPillars from "../../Components/TrainingTracks/trainingTrack
 import CurriculumSection from "../../Components/Courses/curriculumSection";
 import CertificationBanner from "../../Components/Courses/certificationBanner";
 import AdditionalFeaturesBar from "../../Components/Courses/additionalFeaturesBar";
-import TrainingTracksFooter from "../../Components/TrainingTracks/trainingTracksFooter";
+import Footer from "../../Components/Home/footer";
 import { courses, courseTabs } from "../../Components/Courses/courseData";
 
 export function generateStaticParams() {
@@ -56,7 +56,7 @@ export default async function CoursePage({
 
       <AdditionalFeaturesBar {...course.additional} />
 
-      <TrainingTracksFooter />
+      <Footer />
     </div>
   );
 }
