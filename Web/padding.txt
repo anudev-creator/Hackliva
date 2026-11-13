@@ -1,0 +1,1 @@
+Add an outer wrapper with a solid white background around the main dark dashboard component. Apply generous, even padding on all four sides so the dashboard is neatly centered and completely surrounded by a clean white border, matching a professional presentation layout.

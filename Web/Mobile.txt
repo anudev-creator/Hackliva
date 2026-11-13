@@ -1,0 +1,7 @@
+Restyle and refactor this entire design exclusively for mobile viewports (mobile-responsive layout). 
+
+Strict Rules:
+1. Layout & Structure: Transform all multi-column grids, flex rows, side-by-side cards, data tables, and navigation bars into single-column, stacked, touch-friendly mobile layouts with proper spacing and padding.
+2. Color & Styling: Do NOT change, alter, or replace any existing colors, accent tones (#E50914), dark/light container themes, background shades, borders, or visual branding from the original design.
+3. Content Fidelity: Preserve 100% of the existing text, headlines, descriptions, module points, technical tags, and data verbatim without omission or modification.
+4. Output: Ensure a clean, perfectly aligned mobile UI with responsive typography scaling and intuitive card stacking.

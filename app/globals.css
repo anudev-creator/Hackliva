@@ -2,25 +2,69 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  /* Logo red, sampled from the design mockups. */
+  --brand: #e90d21;
+  --brand-navy: #26316b;
+  /* Soft rose hairline used for table and card borders. */
+  --redline: #f2d6d6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand: var(--brand);
+  --color-brand-navy: var(--brand-navy);
+  --color-redline: var(--redline);
+  /* Course-page palette (ink text, hairline borders, mist panels, signal red), from the Figma design. */
+  --color-ink: #090d14;
+  --color-ink-muted: #525a66;
+  --color-hairline: #e4e8ee;
+  --color-mist: #fafbfc;
+  --color-signal: #f00012;
+  /* Fonts are loaded with next/font in app/layout.tsx. */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-space-grotesk);
+  --font-jakarta: var(--font-plus-jakarta);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scrolling (Lenis): only the rules this layout needs from lenis.css. */
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/*
+ * Page-load intro: elements marked data-intro="1".."9" rise into place in order.
+ * Animates from the first paint, so nothing flickers; skipped for reduced motion.
+ */
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-intro] {
+    animation: intro-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  [data-intro="2"] { animation-delay: 0.08s; }
+  [data-intro="3"] { animation-delay: 0.16s; }
+  [data-intro="4"] { animation-delay: 0.24s; }
+  [data-intro="5"] { animation-delay: 0.34s; }
+  [data-intro="6"] { animation-delay: 0.4s; }
+  [data-intro="7"] { animation-delay: 0.46s; }
+  [data-intro="8"] { animation-delay: 0.52s; }
+  [data-intro="9"] { animation-delay: 0.58s; }
 }

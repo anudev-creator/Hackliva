@@ -1,0 +1,16 @@
+Please restyle this screen to match the exact visual language, design system, and dark/light hybrid aesthetic of the Hackliva Academy page (Screen 1). Crucial rule: Do not alter, omit, or replace any existing text, headlines, metrics, table rows, cards, or data points—keep all content verbatim. Only update the styling: typography, colors (clean white background, dark high-contrast cards/sections with #0B0F19/black containers, bold red accent #E50914 for badges/CTAs, subtle gray borders, and crisp monospace/sans-serif type hierarchy), spacing, and component styling."
+
+Option 2: Section-by-Section Precision Prompt (Best for complex/data-heavy pages)
+"Apply the Hackliva Academy visual system to this page while preserving 100% of the current text and structure:
+
+Content & Data: Keep every title, description, label, badge, and list item exactly as written.
+Color Palette: Pure white base background, deep charcoal/black containers for featured modules (like 'What We Do' & 'Master the Tools'), clean borders (border-gray-200 / border-zinc-800), and selective red highlights/accents (#E50914).
+Cards & Badges: Use rounded pill tags with subtle borders, clean grid layouts with generous padding, and high-contrast dark primary buttons with arrow indicators (->).
+Typography: Clean, authoritative tech-forward typography with clear hierarchical weight between section labels, headings, and supporting copy."*
+Option 3: Short & Direct Prompt (Quick single-shot edit)
+"Restyle this page using the exact visual theme, color palette (black, white, red accent), card styling, and typography of Screen 1. Keep all existing text, data, and structure unchanged."
+
+How to use these in Stitch:
+Select the page you want to update on the canvas.
+Paste any of the prompts above into the prompt box.
+Stitch will update the visual presentation while leaving all your content untouched!

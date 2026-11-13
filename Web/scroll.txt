@@ -1,0 +1,100 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>HACKLIVA - Offensive Security Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-text": "#050505",
+          "secondary-text": "#555555",
+          "accent-red": "#F00012",
+          "bg-main": "#FAFAFA",
+          "border-card": "#F2D6D6",
+        },
+        fontFamily: {
+          "inter": ["Inter", "sans-serif"],
+        }
+      },
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: 300;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .hero-bg {
+            background-color: #050505;
+        }
+        .tactical-accent {
+            color: #F00012;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .tactical-grid {
+            background-size: 20px 20px;
+            background-image: radial-gradient(#F2D6D6 1px, transparent 1px);
+        }
+        
+        .tactical-line {
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: -64px;
+            width: 1px;
+            background: #F2D6D6;
+            z-index: -1;
+        }
+        .module-item:last-child .tactical-line {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-bg-main text-primary-text font-inter min-h-screen flex flex-col antialiased selection:bg-accent-red selection:text-white">
+<!-- TopNavBar -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section based on reference image constraints -->
+<!-- Training Tracks Carousel Section -->
+<!-- Persona Navigation Section -->
+<section class="bg-bg-main py-8 border-b border-border-card tactical-grid flex-grow">
+<div class="max-w-7xl mx-auto px-5 md:px-16">
+<div class="flex justify-end gap-2 mb-4">
+<button class="w-10 h-10 flex items-center justify-center border border-border-card bg-white rounded hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-secondary-text">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border border-border-card bg-white rounded hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-secondary-text">chevron_right</span>
+</button>
+</div>
+<div class="flex overflow-x-auto scrollbar-hide gap-6 pb-2"><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Certified Offensive Security Professional+AI Redteaming</button><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Bug Hunting with AI Automation</button><button class="flex-shrink-0 px-6 py-2 rounded bg-primary-text text-white font-medium text-sm uppercase tracking-wider">Certified Web Penetration Testing Specialist</button><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Certified Network Penetration Testing Specialist</button><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Certified Mobile Application Security Specialist</button><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Certified AI Red Teaming Specialist</button><button class="flex-shrink-0 px-6 py-2 rounded bg-white border border-border-card text-secondary-text font-medium text-sm uppercase tracking-wider hover:bg-gray-50 transition-colors">Certified Container Security Specialist</button></div>
+</div>
+</section>
+<!-- Tactical Dashboard Section -->
+<!-- Offensive Security Foundations Roadmap -->
+<!-- COSP AI+ Capability Dossier -->
+<!-- Additional Features -->
+<!-- Offensive Security Intelligence -->
+</main>
+<!-- Footer -->
+</body></html>
+Add the code below selction
