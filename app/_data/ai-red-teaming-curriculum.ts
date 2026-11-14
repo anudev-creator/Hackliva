@@ -17,6 +17,7 @@ export const aiRedTeamingCurriculum: CurriculumSectionProps = {
   title: "The Most Practical AI Red Teaming Curriculum",
   description:
     "Master the offensive techniques behind real AI threats. The World Needs AI Security Experts. Be the One.",
+  // Icons from Web/ai-security-icons, placed in the order of the design.
   groups: [
     [
       { title: "LLM Security Fundamentals", icon: llmSecurity },
@@ -27,11 +28,11 @@ export const aiRedTeamingCurriculum: CurriculumSectionProps = {
       { title: "Agentic AI Architecture", icon: agenticArchitecture },
     ],
     [
-      { title: "Secure AI Harness", icon: secureAiHarness },
-      { title: "AI Agent Manipulation", icon: agentManipulation },
-      { title: "Multi-Agent Communication", icon: multiAgentCommunication },
+      { title: "Agentic AI Architecture", icon: multiAgentCommunication },
+      { title: "AI Agent Manipulation", icon: secureAiHarness },
+      { title: "Multi-Agent Communication", icon: aiAgentAuditing },
       { title: "AI Coding Assistant Security", icon: aiCodingAssistant },
-      { title: "AI Agent Auditing", icon: aiAgentAuditing },
+      { title: "AI Agent Auditing", icon: agentManipulation },
       { title: "AI Threat Modeling", icon: aiThreatModeling },
     ],
   ],

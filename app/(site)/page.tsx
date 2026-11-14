@@ -2,16 +2,16 @@ import { BatchesSection } from "../_components/batches-section";
 import { CertificationsSection } from "../_components/certifications-section";
 import { ComparisonSection } from "../_components/comparison-section";
 import { CtaBanner } from "../_components/cta-banner";
+import { CurriculumSection } from "../_components/curriculum-section";
 import { InnovationSection } from "../_components/innovation-section";
 import { ReviewsSection } from "../_components/reviews-section";
 import { SkillsSection } from "../_components/skills-section";
-import { ToolsSection } from "../_components/tools-section";
+import { aiRedTeamingCurriculum } from "../_data/ai-red-teaming-curriculum";
 import { upcomingBatches } from "../_data/batches";
 import { offensiveSecurityCertifications } from "../_data/certifications";
 import { cyberSecurityInnovation } from "../_data/innovation";
 import { customerReviews } from "../_data/reviews";
 import { skillsYouWillMaster } from "../_data/skills";
-import { masterTheTools } from "../_data/tools";
 import {
   placementAssistanceCta,
   whyHacklivaComparison,
@@ -25,7 +25,7 @@ export default function Home() {
     <main className="flex-1">
       <HeroSection />
       <OfferingsSection />
-      <ToolsSection {...masterTheTools} className="pb-16 sm:pb-24" />
+      <CurriculumSection {...aiRedTeamingCurriculum} />
       <CertificationsSection {...offensiveSecurityCertifications} />
       <BatchesSection {...upcomingBatches} />
       <ComparisonSection {...whyHacklivaComparison}>
