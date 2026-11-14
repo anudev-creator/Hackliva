@@ -11,17 +11,19 @@ export type ToolsSectionProps = {
   description?: string;
   groups: ToolGroup[];
   id?: string;
+  /** Extra classes for the outer section, e.g. bottom spacing when it isn't followed by another panel. */
+  className?: string;
 };
 
 /** Dark rounded panel (Figma 425:2694) with a centered heading and one glass card of tools per group. */
-export function ToolsSection({ title, description, groups, id = "tools" }: ToolsSectionProps) {
+export function ToolsSection({ title, description, groups, id = "tools", className = "" }: ToolsSectionProps) {
   const headingId = `${id}-heading`;
 
   return (
     <section
       id={id}
       aria-labelledby={headingId}
-      className="bg-white px-5 pt-10 font-jakarta sm:px-8 lg:pt-[58px]"
+      className={`bg-white px-5 pt-10 font-jakarta sm:px-8 lg:pt-[58px] ${className}`}
     >
       <div className="relative mx-auto max-w-[1216px] overflow-clip rounded-[32px] border border-white/20 bg-[#080512] px-5 py-14 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] sm:px-12 lg:py-20">
         {/* Soft glows from the design: warm in the top-right corner, violet behind the heading. */}

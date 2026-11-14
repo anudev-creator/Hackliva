@@ -22,6 +22,7 @@ const ICON_NAMES = [
   "notifications",
   "paid",
   "person",
+  "person_search",
   "schedule",
   "school",
   "smart_toy",

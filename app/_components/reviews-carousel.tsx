@@ -14,7 +14,7 @@ type ReviewsCarouselProps = {
 
 /**
  * Cards scroll sideways and bleed off the right edge of the screen.
- * The intro (with arrows and a progress bar) sits in the left column on lg+.
+ * The intro sits in the left column on lg+; the arrows and progress bar sit centered below the cards.
  */
 export function ReviewsCarousel({ intro, label, children }: ReviewsCarouselProps) {
   const { trackRef, onScroll, scrollBySlide, canPrev, canNext, progress, visible } =
@@ -24,32 +24,7 @@ export function ReviewsCarousel({ intro, label, children }: ReviewsCarouselProps
     // --edge: distance from the screen edge to the max-w-7xl content column.
     <div className="relative [--edge:max(var(--gutter),calc((100%-80rem)/2+var(--gutter)))] [--gutter:1.25rem] [--intro:17rem] sm:[--gutter:2.5rem]">
       <div className="px-(--edge) lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-(--edge) lg:flex lg:w-(--intro) lg:items-center lg:px-0">
-        <div className="lg:pointer-events-auto">
-          {intro}
-          <div className="mt-8 flex items-center gap-4">
-            <ArrowButton
-              icon="arrow_back"
-              label="Previous reviews"
-              disabled={!canPrev}
-              onClick={() => scrollBySlide(-1)}
-            />
-            <div aria-hidden="true" className="relative h-0.5 w-16 overflow-hidden rounded-full bg-zinc-300">
-              <div
-                className="absolute inset-y-0 left-0 rounded-full bg-zinc-900"
-                style={{
-                  width: `${visible * 100}%`,
-                  transform: `translateX(${(progress * (1 - visible) * 100) / visible}%)`,
-                }}
-              />
-            </div>
-            <ArrowButton
-              icon="arrow_forward"
-              label="Next reviews"
-              disabled={!canNext}
-              onClick={() => scrollBySlide(1)}
-            />
-          </div>
-        </div>
+        <div className="lg:pointer-events-auto">{intro}</div>
       </div>
 
       <ul
@@ -63,6 +38,30 @@ export function ReviewsCarousel({ intro, label, children }: ReviewsCarouselProps
           <li className="w-[85%] max-w-80 shrink-0 snap-start sm:w-80">{child}</li>
         ))}
       </ul>
+
+      <div className="mt-8 flex items-center justify-center gap-5 px-(--edge)">
+        <ArrowButton
+          icon="arrow_back"
+          label="Previous reviews"
+          disabled={!canPrev}
+          onClick={() => scrollBySlide(-1)}
+        />
+        <div aria-hidden="true" className="relative h-0.5 w-32 overflow-hidden sm:w-48 rounded-full bg-zinc-300">
+          <div
+            className="absolute inset-y-0 left-0 rounded-full bg-zinc-900"
+            style={{
+              width: `${visible * 100}%`,
+              transform: `translateX(${(progress * (1 - visible) * 100) / visible}%)`,
+            }}
+          />
+        </div>
+        <ArrowButton
+          icon="arrow_forward"
+          label="Next reviews"
+          disabled={!canNext}
+          onClick={() => scrollBySlide(1)}
+        />
+      </div>
     </div>
   );
 }

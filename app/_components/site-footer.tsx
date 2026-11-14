@@ -60,6 +60,8 @@ export function SiteFooter({ bannerTone = "white" }: { bannerTone?: "grey" | "wh
               <li key={social.network} className="flex">
                 <a
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-[#475569] transition-colors hover:text-ink"
                 >
                   <SocialIcon network={social.network} />

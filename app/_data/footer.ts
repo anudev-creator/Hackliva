@@ -120,12 +120,12 @@ export const footer = {
     },
   ] satisfies FooterGroup[],
   socials: [
-    { network: "linkedin", label: "LinkedIn", href: "#" },
-    { network: "github", label: "GitHub", href: "#" },
-    { network: "x", label: "X (Twitter)", href: "#" },
-    { network: "discord", label: "Discord", href: "#" },
-    { network: "telegram", label: "Telegram", href: "#" },
-    { network: "youtube", label: "YouTube", href: "#" },
+    { network: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/hackliva/" },
+    { network: "github", label: "GitHub", href: "https://github.com/hackliva" },
+    { network: "x", label: "X (Twitter)", href: "https://x.com/hackliva" },
+    { network: "discord", label: "Discord", href: "https://discord.com/users/1530550347246997615" },
+    { network: "telegram", label: "Telegram", href: "https://t.me/hackliva" },
+    { network: "youtube", label: "YouTube", href: "https://www.youtube.com/@Hackliva" },
   ] satisfies { network: SocialNetwork; label: string; href: string }[],
   copyright:
     "© 2026 HACKLIVA Academy Global. A Division of The Astraliva LLP. Enterprise verification secured by Astraliva LLP. All rights reserved.",
