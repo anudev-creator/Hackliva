@@ -11,15 +11,18 @@ const labelHeading = "text-[10px] leading-[15px] font-bold tracking-[0.5px] text
 
 /**
  * Consultation card plus the global footer (Figma 425:3286).
- * `bannerTone` "grey" lets the card straddle a grey section above it; course pages use plain white.
+ * `bannerTone` "grey" continues the grey section above for the top padding only, so the card sits fully on white;
+ * course pages use plain white.
  */
 export function SiteFooter({ bannerTone = "white" }: { bannerTone?: "grey" | "white" }) {
   return (
     <>
       <div
         className={`${
-          bannerTone === "grey" ? "bg-[linear-gradient(to_bottom,#f9f9f9_50%,#ffffff_50%)]" : "bg-white"
-        } px-5 pt-10 sm:px-8`}
+          bannerTone === "grey"
+            ? "bg-[linear-gradient(to_bottom,#f9f9f9_40px,#ffffff_40px)] pt-20"
+            : "bg-white pt-10"
+        } px-5 sm:px-8`}
       >
         <div className="mx-auto max-w-[1216px]">
           <ConsultationBanner {...consultationCta} />
