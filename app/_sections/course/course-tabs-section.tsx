@@ -3,7 +3,7 @@ import { CourseTabs } from "../../_components/course-tabs";
 import { offensiveSecurityCertifications } from "../../_data/certifications";
 
 // Pill order from the Figma course page; any course not listed follows in data order.
-const TAB_ORDER = ["COSPAI+", "BHAI", "CWPTS", "CNPTS", "CMASS", "CAIRTS", "CCSS", "CRES"];
+const TAB_ORDER = ["COSPAI+", "BHAI", "CWPTS", "CNPTS", "CMASS", "CAIRTS", "CRES"];
 const rank = (code: string) => {
   const index = TAB_ORDER.indexOf(code);
   return index === -1 ? TAB_ORDER.length : index;

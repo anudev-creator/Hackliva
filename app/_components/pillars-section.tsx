@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 export type Pillar = {
   title: string;
   description: string;
-  /** Small mono caption at the bottom of the card. */
-  tag: string;
+  /** Small mono caption at the bottom of the card; omit for none. */
+  tag?: string;
 };
 
 export type PillarsSectionProps = {
@@ -51,11 +51,13 @@ export function PillarsSection({ title, description, pillars, id = "pillars" }: 
                   </h3>
                   <p className="font-jakarta text-base leading-6 text-ink-muted">{pillar.description}</p>
                 </div>
-                <div className="pt-6">
-                  <p className="border-t border-[rgba(228,232,238,0.6)] pt-6 font-mono text-xs leading-4 text-[#a1a1aa] uppercase">
-                    {pillar.tag}
-                  </p>
-                </div>
+                {pillar.tag && (
+                  <div className="pt-6">
+                    <p className="border-t border-[rgba(228,232,238,0.6)] pt-6 font-mono text-xs leading-4 text-[#a1a1aa] uppercase">
+                      {pillar.tag}
+                    </p>
+                  </div>
+                )}
               </article>
             </li>
           ))}

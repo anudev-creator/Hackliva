@@ -17,7 +17,7 @@ type ReviewsCarouselProps = {
  * The intro sits in the left column on lg+; the arrows and progress bar sit centered below the cards.
  */
 export function ReviewsCarousel({ intro, label, children }: ReviewsCarouselProps) {
-  const { trackRef, onScroll, scrollBySlide, canPrev, canNext, progress, visible } =
+  const { trackRef, onScroll, dragHandlers, scrollBySlide, canPrev, canNext, progress, visible } =
     useScrollCarousel<HTMLUListElement>();
 
   return (
@@ -30,9 +30,10 @@ export function ReviewsCarousel({ intro, label, children }: ReviewsCarouselProps
       <ul
         ref={trackRef}
         onScroll={onScroll}
+        {...dragHandlers}
         aria-label={label}
         // `relative` keeps absolutely positioned slide content clipped by the track.
-        className="relative mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain px-(--edge) pb-2 [scrollbar-width:none] scroll-px-(--edge) lg:mt-0 lg:ml-[calc(var(--edge)+var(--intro)+2.5rem)] lg:pl-0 lg:scroll-pl-0 [&::-webkit-scrollbar]:hidden"
+        className="relative mt-10 flex lg:cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain px-(--edge) pb-2 [scrollbar-width:none] scroll-px-(--edge) lg:mt-0 lg:ml-[calc(var(--edge)+var(--intro)+2.5rem)] lg:pl-0 lg:scroll-pl-0 [&::-webkit-scrollbar]:hidden"
       >
         {Children.map(children, (child) => (
           <li className="w-[85%] max-w-80 shrink-0 snap-start sm:w-80">{child}</li>

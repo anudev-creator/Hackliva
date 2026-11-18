@@ -20,7 +20,7 @@ type CourseTabsProps = {
 
 /** Course switcher bar (Figma 425:2873): arrow buttons on the right, then a scrolling row of pills. */
 export function CourseTabs({ tabs, activeHref }: CourseTabsProps) {
-  const { trackRef, onScroll, scrollBySlide, canPrev, canNext } =
+  const { trackRef, onScroll, dragHandlers, scrollBySlide, canPrev, canNext } =
     useScrollCarousel<HTMLUListElement>();
   const activeRef = useRef<HTMLLIElement>(null);
 
@@ -43,8 +43,9 @@ export function CourseTabs({ tabs, activeHref }: CourseTabsProps) {
         <ul
           ref={trackRef}
           onScroll={onScroll}
+        {...dragHandlers}
           aria-label="Courses"
-          className="relative flex h-[42px] gap-3 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="relative flex h-[42px] gap-3 lg:cursor-grab overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {tabs.map((tab) => {
             const active = tab.href === activeHref;

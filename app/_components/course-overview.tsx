@@ -2,7 +2,16 @@ import Image, { type StaticImageData } from "next/image";
 
 export type OverviewCard = {
   title: string;
-  subtitle: string;
+  /** Small red uppercase line between the title and subtitle; omit for none. */
+  eyebrow?: string;
+  /** Bold line under the title; omit for none. */
+  subtitle?: string;
+  /** Show the eyebrow in red (otherwise dark). */
+  eyebrowAccent?: boolean;
+  /** Show the subtitle in red. */
+  accent?: boolean;
+  /** Show the description in red. */
+  descriptionAccent?: boolean;
   /** Use "\n" for the design's line breaks (applied from lg up). */
   description: string;
   /** Image shown in a 56px tile above the title; omit for none. */
@@ -55,8 +64,24 @@ export function CourseOverview({ title, tagline, cards, id = "overview" }: Cours
                   {card.title}
                 </h3>
                 <div className="flex flex-col gap-[3.25px]">
-                  <p className="text-sm leading-5 font-semibold text-ink">{card.subtitle}</p>
-                  <p className="text-sm leading-[22.75px] text-ink-muted lg:whitespace-pre-line xl:whitespace-pre">
+                  {card.eyebrow && (
+                    <p
+                      className={`text-xs leading-4 font-bold tracking-[0.3px] uppercase ${card.eyebrowAccent ? "text-signal" : "text-ink"}`}
+                    >
+                      {card.eyebrow}
+                    </p>
+                  )}
+                  {card.subtitle && (
+                    <p className={`text-sm leading-5 font-semibold ${card.accent ? "text-signal" : "text-ink"}`}>
+                      {card.subtitle}
+                    </p>
+                  )}
+                  <p
+                    className={`text-sm leading-[22.75px] ${
+                      // Only text with the design's own line breaks is kept unwrapped; anything else wraps inside the card.
+                      card.description.includes("\n") ? "lg:whitespace-pre-line xl:whitespace-pre" : "text-pretty"
+                    } ${card.descriptionAccent ? "text-signal" : "text-ink-muted"}`}
+                  >
                     {card.description}
                   </p>
                 </div>

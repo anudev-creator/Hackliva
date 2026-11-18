@@ -19,7 +19,7 @@ type CarouselProps = {
  * the right edge of the screen; touch users can swipe.
  */
 export function Carousel({ header, label, children }: CarouselProps) {
-  const { trackRef, onScroll, scrollBySlide, canPrev, canNext } =
+  const { trackRef, onScroll, dragHandlers, scrollBySlide, canPrev, canNext } =
     useScrollCarousel<HTMLUListElement>();
 
   return (
@@ -46,10 +46,11 @@ export function Carousel({ header, label, children }: CarouselProps) {
         ref={trackRef}
         data-reveal
         onScroll={onScroll}
+        {...dragHandlers}
         aria-label={label}
         // `relative` keeps absolutely positioned slide content (e.g. sr-only
         // text) clipped by the track instead of widening the whole page.
-        className="relative mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain px-(--edge) pb-2 [--edge:max(var(--gutter),calc((100%-80rem)/2+var(--gutter)))] [--gutter:1.25rem] [scrollbar-width:none] scroll-px-(--edge) sm:[--gutter:2.5rem] [&::-webkit-scrollbar]:hidden"
+        className="relative mt-10 flex lg:cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain px-(--edge) pb-2 [--edge:max(var(--gutter),calc((100%-80rem)/2+var(--gutter)))] [--gutter:1.25rem] [scrollbar-width:none] scroll-px-(--edge) sm:[--gutter:2.5rem] [&::-webkit-scrollbar]:hidden"
       >
         {Children.map(children, (child) => (
           <li className="w-[85%] max-w-[300px] shrink-0 snap-start sm:w-[300px]">

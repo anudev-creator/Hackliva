@@ -1,7 +1,6 @@
 "use client";
 
 import { Children, useEffect, useEffectEvent, useRef, type ReactNode } from "react";
-import { getLenis } from "./smooth-scroll";
 
 type StackCardsProps = {
   /** One child per card. */
@@ -116,8 +115,8 @@ export function StackCards({
 
     const tick = (time: number) => {
       const frames = lastTime ? Math.min((time - lastTime) / (1000 / 60), 4) : 1;
-      // With smooth scrolling on, the scroll position is already eased: follow it exactly.
-      const ease = getLenis() ? 1 : 1 - Math.pow(1 - EASE, frames);
+      // Native scrolling jumps in steps; easing toward it keeps the stacking smooth.
+      const ease = 1 - Math.pow(1 - EASE, frames);
       lastTime = time;
 
       const scrolled = scrolledSincePin();

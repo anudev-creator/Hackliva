@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { BenefitsSection } from "../../../_components/benefits-section";
+import { CurriculumSection } from "../../../_components/curriculum-section";
 import { PillarsSection } from "../../../_components/pillars-section";
-import { ToolsSection } from "../../../_components/tools-section";
+import { aiRedTeamingCurriculum } from "../../../_data/ai-red-teaming-curriculum";
 import { offensiveSecurityCertifications } from "../../../_data/certifications";
 import { additionalBenefits } from "../../../_data/benefits";
 import { buildingAttackers } from "../../../_data/building-attackers";
-import { masterTheTools } from "../../../_data/tools";
+import { CourseBenefitsSection } from "../../../_sections/course/course-benefits-section";
+import { CourseModulesSection } from "../../../_sections/course/course-modules-section";
+import { CoursePillarsSection } from "../../../_sections/course/course-pillars-section";
 import { CourseOverviewSection } from "../../../_sections/course/course-overview-section";
 import { CourseRoadmapSection } from "../../../_sections/course/course-roadmap-section";
 import { CourseSyllabusSection } from "../../../_sections/course/course-syllabus-section";
@@ -35,8 +38,10 @@ export async function generateMetadata({
 export default function CoursePage({ params }: PageProps<"/courses/[slug]">) {
   return (
     <main className="flex-1">
-      <ToolsSection {...masterTheTools} />
-      <PillarsSection {...buildingAttackers} />
+      <CurriculumSection {...aiRedTeamingCurriculum} />
+      <Suspense fallback={<PillarsSection {...buildingAttackers} />}>
+        <CoursePillarsSection params={params} />
+      </Suspense>
       <Suspense fallback={<CourseTabsFallback />}>
         <CourseTabsSection params={params} />
       </Suspense>
@@ -49,7 +54,12 @@ export default function CoursePage({ params }: PageProps<"/courses/[slug]">) {
       <Suspense fallback={null}>
         <CourseSyllabusSection params={params} />
       </Suspense>
-      <BenefitsSection {...additionalBenefits} />
+      <Suspense fallback={null}>
+        <CourseModulesSection params={params} />
+      </Suspense>
+      <Suspense fallback={<BenefitsSection {...additionalBenefits} />}>
+        <CourseBenefitsSection params={params} />
+      </Suspense>
     </main>
   );
 }

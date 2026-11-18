@@ -2,7 +2,7 @@
 
 import { Children, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { MaterialSymbol } from "../../_components/material-symbol";
-import { jumpTo } from "../../_components/smooth-scroll";
+import { jumpTo } from "../../_components/scroll";
 import { StackCards } from "../../_components/stack-cards";
 
 type WhatWeDoPanelProps = {

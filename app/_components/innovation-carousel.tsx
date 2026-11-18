@@ -12,15 +12,16 @@ type InnovationCarouselProps = {
 
 /** Row of cards that fits three across on desktop and scrolls sideways when there are more (or less room). */
 export function InnovationCarousel({ label, children }: InnovationCarouselProps) {
-  const { trackRef, onScroll, progress, visible } = useScrollCarousel<HTMLUListElement>();
+  const { trackRef, onScroll, dragHandlers, progress, visible } = useScrollCarousel<HTMLUListElement>();
 
   return (
     <div>
       <ul
         ref={trackRef}
         onScroll={onScroll}
+        {...dragHandlers}
         aria-label={label}
-        className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] lg:gap-7 [&::-webkit-scrollbar]:hidden"
+        className="relative flex lg:cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] lg:gap-7 [&::-webkit-scrollbar]:hidden"
       >
         {Children.map(children, (child) => (
           <li className="w-[85%] max-w-[26rem] shrink-0 snap-start sm:w-[max(17.5rem,calc((100%-3rem)/3))] sm:max-w-none lg:w-[calc((100%-3.5rem)/3)]">

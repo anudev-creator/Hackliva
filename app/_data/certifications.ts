@@ -1,6 +1,5 @@
 import bhai from "../_assets/certifications/bhai.png";
 import cairts from "../_assets/certifications/cairts.png";
-import ccss from "../_assets/certifications/ccss.png";
 import cmass from "../_assets/certifications/cmass.png";
 import cnpts from "../_assets/certifications/cnpts.png";
 import cospaiPlus from "../_assets/certifications/cospai-plus.png";
@@ -51,7 +50,7 @@ export const offensiveSecurityCertifications: CertificationsSectionProps = {
     {
       code: "CNPTS",
       name: "Certified Network Penetration Specialist",
-      tabLabel: "Certified Network Penetration Testing Specialist",
+      tabLabel: "Network Penetration Testing Specialist",
       badge: cnpts,
       href: "/courses/cnpts",
       highlights: [
@@ -81,17 +80,6 @@ export const offensiveSecurityCertifications: CertificationsSectionProps = {
         "Automated mobile reconnaissance & telemetry synthesis",
         "Runtime instrumentation & dynamic hooking (Frida/ADB)",
         "Cryptographic keystore & memory exploit analysis",
-      ],
-    },
-    {
-      code: "CCSS",
-      name: "Certified Container Security Specialist",
-      badge: ccss,
-      href: "/courses/ccss",
-      highlights: [
-        "Container & Kubernetes fundamentals, architecture & attack surface",
-        "Container escape techniques & cluster-level attack execution",
-        "Runtime defense, monitoring & misconfiguration hardening",
       ],
     },
     {

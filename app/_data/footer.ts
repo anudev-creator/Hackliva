@@ -39,7 +39,6 @@ export const footer = {
           { label: "Certified Offensive Security Professional + AI Red Teaming (COSP AI+)", href: "/courses/cospai-plus" },
           { label: "Bug Hunting with AI Automation (BHAI)", href: "/courses/bhai" },
           { label: "Certified Network Penetration Testing Specialist (CNPTS)", href: "/courses/cnpts" },
-          { label: "Certified Container Security Specialist (CCSS)", href: "/courses/ccss" },
           { label: "Certified Web Penetration Testing Specialist (CWPTS)", href: "/courses/cwpts" },
           { label: "Certified Mobile Application Security Specialist (CMASS)", href: "/courses/cmass" },
           { label: "Certified AI Red Teaming Specialist (CAIRTS)", href: "/courses/cairts" },

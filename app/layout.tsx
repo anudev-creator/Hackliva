@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import { ScrollReveal } from "./_components/scroll-reveal";
-import { SmoothScroll } from "./_components/smooth-scroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,11 +33,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      // Lets in-page #links glide (see globals.css) while route changes still jump straight to the top.
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} ${plusJakarta.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         {children}
-        <SmoothScroll />
         <ScrollReveal />
       </body>
     </html>

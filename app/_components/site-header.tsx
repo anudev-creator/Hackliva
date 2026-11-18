@@ -4,7 +4,7 @@ import { navLinks } from "./nav-links";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/95">
       <div className="mx-auto grid h-16 max-w-screen-2xl grid-cols-[1fr_auto] items-center px-5 sm:px-10 md:h-18 md:grid-cols-[1fr_auto_1fr] lg:px-16">
         <Link
           href="/"
