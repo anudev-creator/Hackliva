@@ -8,9 +8,9 @@ export type NavLink = {
 
 export const navLinks: NavLink[] = [
   { href: "/ai-security", label: "AI Security", featured: true },
-  { href: "/courses", label: "Courses" },
-  { href: "/our-work", label: "Our Work" },
-  { href: "/blog", label: "Blog" },
+  { href: "/#certifications", label: "Courses" },
+  { href: "/#why-hackliva", label: "Our Work" },
+  { href: "/#innovation", label: "Blog" },
   { href: "/events", label: "Events" },
   { href: "/about", label: "About Us" },
 ];

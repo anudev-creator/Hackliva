@@ -1,5 +1,6 @@
 import { BatchesSection } from "../_components/batches-section";
 import { CertificationsSection } from "../_components/certifications-section";
+import { HeroBackdrop } from "../_components/hero-backdrop";
 import { ComparisonSection } from "../_components/comparison-section";
 import { CtaBanner } from "../_components/cta-banner";
 import { CurriculumSection } from "../_components/curriculum-section";
@@ -23,8 +24,11 @@ import { WhatWeDoSection } from "../_sections/home/what-we-do-section";
 export default function Home() {
   return (
     <main className="flex-1">
-      <HeroSection />
-      <OfferingsSection />
+      <div className="relative isolate">
+        <HeroBackdrop />
+        <HeroSection />
+        <OfferingsSection />
+      </div>
       <CurriculumSection {...aiRedTeamingCurriculum} />
       <CertificationsSection {...offensiveSecurityCertifications} />
       <BatchesSection {...upcomingBatches} />

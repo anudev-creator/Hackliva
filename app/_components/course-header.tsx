@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { HeaderEffects } from "./header-effects";
 import { MobileNav } from "./mobile-nav";
 import { courseNavLinks } from "./nav-links";
 
 /** Header used on course pages (Figma 425:3497): wordmark left, nav with a "We're Hiring" tag on Careers. */
 export function CourseHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-white">
+    <header className="header-drop sticky top-0 z-40 border-b border-hairline bg-white transition-shadow duration-300 data-scrolled:shadow-[0_8px_24px_-14px_rgba(15,15,15,0.28)]">
       <div className="mx-auto flex h-[70px] max-w-[1280px] items-center justify-between px-5 sm:px-8 xl:pr-[238.64px]">
         <Link
           href="/"
@@ -16,8 +17,12 @@ export function CourseHeader() {
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center gap-7 font-jakarta text-sm leading-5 font-medium text-[#1e1e24]">
-            {courseNavLinks.map((link) => (
-              <li key={link.href} className={link.badge ? "relative translate-y-[3px]" : undefined}>
+            {courseNavLinks.map((link, index) => (
+              <li
+                key={link.href}
+                style={{ "--i": index } as React.CSSProperties}
+                className={`header-item ${link.badge ? "relative translate-y-[3px]" : ""}`}
+              >
                 {link.badge && (
                   <span
                     aria-hidden="true"
@@ -40,6 +45,7 @@ export function CourseHeader() {
 
         <MobileNav links={courseNavLinks} className="lg:hidden" />
       </div>
+      <HeaderEffects />
     </header>
   );
 }
