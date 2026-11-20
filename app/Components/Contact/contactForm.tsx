@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { ADMIN_API_URL } from "../../_lib/admin-api";
 
 export type ContactFormProps = {
   interestOptions: string[];
@@ -17,11 +18,49 @@ export default function ContactForm({
   consentText,
   submitLabel,
 }: ContactFormProps) {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setError(null);
+
+    if (!ADMIN_API_URL) {
+      setError("This form is not connected yet. Please contact us by phone or email instead.");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const response = await fetch(`${ADMIN_API_URL}/api/public/enquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: String(data.get("name") ?? ""),
+          email: String(data.get("email") ?? ""),
+          mobile: String(data.get("mobile") ?? ""),
+          interest: String(data.get("interest") ?? ""),
+          consent: data.get("consent") === "on",
+        }),
+      });
+      if (response.ok) {
+        form.reset();
+        setStatus("sent");
+        return;
+      }
+      setError(
+        response.status === 429
+          ? "Too many submissions from your connection. Please try again later."
+          : response.status === 422
+            ? "Some details look invalid. Please check your name, email and mobile number."
+            : "Something went wrong on our side. Please try again in a moment.",
+      );
+    } catch {
+      setError("We could not reach the server. Check your connection and try again.");
+    }
+    setStatus("idle");
   };
 
   return (
@@ -101,7 +140,7 @@ export default function ContactForm({
         <span className="leading-5">{consentText}</span>
       </label>
 
-      {submitted ? (
+      {status === "sent" ? (
         <p
           role="status"
           className="rounded-lg border border-[#F2D6D6] bg-white px-4 py-3 text-sm text-[#050505]"
@@ -110,11 +149,17 @@ export default function ContactForm({
         </p>
       ) : (
         <div>
+          {error && (
+            <p role="alert" className="mb-4 text-sm text-[#D2000F]">
+              {error}
+            </p>
+          )}
           <button
             type="submit"
-            className="inline-flex h-[46px] items-center justify-center gap-3 rounded-lg bg-[#F00012] px-8 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012]"
+            disabled={status === "sending"}
+            className="inline-flex h-[46px] items-center justify-center gap-3 rounded-lg bg-[#F00012] px-8 text-sm font-medium text-white transition-colors duration-300 hover:bg-[#D2000F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F00012] disabled:opacity-60"
           >
-            {submitLabel}
+            {status === "sending" ? "Sending…" : submitLabel}
             <svg
               viewBox="0 0 8 8"
               fill="none"

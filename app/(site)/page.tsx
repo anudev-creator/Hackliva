@@ -1,11 +1,11 @@
-import { BatchesSection } from "../_components/batches-section";
 import { CertificationsSection } from "../_components/certifications-section";
 import { HeroBackdrop } from "../_components/hero-backdrop";
+import { LiveInnovationSection } from "../_components/live-innovation-section";
+import { LiveBatchesSection } from "../_components/live-batches-section";
+import { LiveReviewsSection } from "../_components/live-reviews-section";
 import { ComparisonSection } from "../_components/comparison-section";
 import { CtaBanner } from "../_components/cta-banner";
 import { CurriculumSection } from "../_components/curriculum-section";
-import { InnovationSection } from "../_components/innovation-section";
-import { ReviewsSection } from "../_components/reviews-section";
 import { SkillsSection } from "../_components/skills-section";
 import { aiRedTeamingCurriculum } from "../_data/ai-red-teaming-curriculum";
 import { upcomingBatches } from "../_data/batches";
@@ -31,14 +31,14 @@ export default function Home() {
       </div>
       <CurriculumSection {...aiRedTeamingCurriculum} />
       <CertificationsSection {...offensiveSecurityCertifications} />
-      <BatchesSection {...upcomingBatches} />
+      <LiveBatchesSection {...upcomingBatches} />
       <ComparisonSection {...whyHacklivaComparison}>
         <CtaBanner {...placementAssistanceCta} />
       </ComparisonSection>
       <WhatWeDoSection />
       <SkillsSection {...skillsYouWillMaster} />
-      <InnovationSection {...cyberSecurityInnovation} />
-      <ReviewsSection {...customerReviews} />
+      <LiveInnovationSection {...cyberSecurityInnovation} />
+      <LiveReviewsSection {...customerReviews} />
     </main>
   );
 }

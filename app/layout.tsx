@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
+import { CursorGlow } from "./_components/cursor-glow";
 import { ScrollReveal } from "./_components/scroll-reveal";
 import "./globals.css";
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col font-sans">
         {children}
         <ScrollReveal />
+        <CursorGlow />
       </body>
     </html>
   );

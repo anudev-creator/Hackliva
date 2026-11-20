@@ -160,38 +160,26 @@ function startNetwork(canvas: HTMLCanvasElement, host: HTMLElement) {
 }
 
 /**
- * Mouse depth: background layers shift by different amounts (via --px/--py), a red glow trails the cursor,
- * and the hero copy drifts down and fades as you scroll past it.
+ * Mouse depth: background layers shift by different amounts (via --px/--py),
+ * and the hero copy drifts down and fades as you scroll past it. (The cursor glow is site-wide: see CursorGlow.)
  */
-function startDepth(root: HTMLElement, host: HTMLElement, glow: HTMLElement) {
+function startDepth(root: HTMLElement, host: HTMLElement) {
   if (window.matchMedia(REDUCED_MOTION).matches) return () => {};
   const fine = window.matchMedia(FINE_POINTER).matches;
   const content = host.querySelector<HTMLElement>("[data-hero-parallax]");
 
-  let targetX = 0;
-  let targetY = 0;
-  let glowX = 0;
-  let glowY = 0;
   let px = 0;
   let py = 0;
   let tpx = 0;
   let tpy = 0;
-  let inside = false;
   let frame = 0;
 
   const tick = () => {
-    glowX += (targetX - glowX) * 0.12;
-    glowY += (targetY - glowY) * 0.12;
     px += (tpx - px) * 0.06;
     py += (tpy - py) * 0.06;
-    glow.style.transform = `translate3d(${glowX - 320}px, ${glowY - 320}px, 0)`;
     root.style.setProperty("--px", px.toFixed(4));
     root.style.setProperty("--py", py.toFixed(4));
-    const moving =
-      Math.abs(targetX - glowX) > 0.5 ||
-      Math.abs(targetY - glowY) > 0.5 ||
-      Math.abs(tpx - px) > 0.001 ||
-      Math.abs(tpy - py) > 0.001;
+    const moving = Math.abs(tpx - px) > 0.001 || Math.abs(tpy - py) > 0.001;
     frame = moving ? requestAnimationFrame(tick) : 0;
   };
   const kick = () => {
@@ -199,22 +187,11 @@ function startDepth(root: HTMLElement, host: HTMLElement, glow: HTMLElement) {
   };
 
   const onMove = (event: PointerEvent) => {
-    const rect = host.getBoundingClientRect();
-    targetX = event.clientX - rect.left;
-    targetY = event.clientY - rect.top;
     tpx = (event.clientX / window.innerWidth) * 2 - 1;
     tpy = (event.clientY / window.innerHeight) * 2 - 1;
-    if (!inside) {
-      inside = true;
-      glowX = targetX;
-      glowY = targetY;
-      glow.style.opacity = "1";
-    }
     kick();
   };
   const onLeave = () => {
-    inside = false;
-    glow.style.opacity = "0";
     tpx = 0;
     tpy = 0;
     kick();
@@ -259,19 +236,18 @@ const depth = (px: number, extra: Record<string, string> = {}) =>
 
 /**
  * Animated stage behind the hero: drifting grid, glowing orbs, a radar sweep behind the headline,
- * a red scan line, a live node network, and a cursor glow. Put it first inside a `relative isolate` wrapper,
+ * a red scan line, and a live node network that reaches for the cursor. Put it first inside a `relative isolate` wrapper,
  * and mark the hero copy with `data-hero-parallax` to have it drift away on scroll.
  */
 export function HeroBackdrop() {
   const root = useRef<HTMLDivElement>(null);
-  const glow = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const host = root.current?.parentElement;
-    if (!host || !root.current || !glow.current || !canvas.current) return;
+    if (!host || !root.current || !canvas.current) return;
     const stopNetwork = startNetwork(canvas.current, host);
-    const stopDepth = startDepth(root.current, host, glow.current);
+    const stopDepth = startDepth(root.current, host);
     return () => {
       stopNetwork();
       stopDepth();
@@ -305,11 +281,6 @@ export function HeroBackdrop() {
       <canvas ref={canvas} className="hero-network absolute inset-0 size-full" />
 
       <div className="hero-scan" />
-
-      <div
-        ref={glow}
-        className="absolute top-0 left-0 size-[640px] rounded-full opacity-0 transition-opacity duration-500 [background:radial-gradient(circle,rgba(233,13,33,0.12),transparent_65%)]"
-      />
     </div>
   );
 }
